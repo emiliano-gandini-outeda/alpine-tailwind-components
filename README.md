@@ -101,4 +101,4 @@ Copy the components you need from this repo into your project. The components us
 
 ## License
 
-See (License)[LICENSE]
+See [LICENSE](LICENSE)
