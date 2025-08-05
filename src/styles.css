@@ -373,25 +373,43 @@ body {
   @apply mt-2;
 }
 
+/* Unordered list (bullets with accent dots) */
 .list-ul {
   color: var(--color-text-primary);
   font-family: 'Inter', sans-serif;
-  @apply list-disc list-inside mt-6 space-y-3 leading-relaxed text-base pl-4;
+  @apply list-none mt-6 space-y-3 leading-relaxed text-base pl-6;
 }
 
 .list-ul li {
-  @apply pl-2 relative;
+  @apply relative pl-6;
+
+  /* Decorative custom bullet */
 }
 
+.list-ul li::before {
+  content: '';
+  @apply absolute left-0 top-2 w-2 h-2 rounded-full;
+  background-color: var(--color-dark-red);
+}
+
+/* Ordered list (numbered with vertical bar) */
 .list-ol {
   color: var(--color-text-primary);
   font-family: 'Inter', sans-serif;
-  @apply list-decimal list-inside mt-6 space-y-3 leading-relaxed text-base pl-4;
+  counter-reset: list-counter;
+  @apply list-none mt-6 space-y-3 leading-relaxed text-base pl-6 border-l-2 border-[var(--color-dark-red)];
 }
 
 .list-ol li {
-  @apply pl-2 relative;
+  counter-increment: list-counter;
+  @apply relative pl-6;
 }
+
+.list-ol li::before {
+  content: counter(list-counter) '.';
+  @apply absolute left-0 top-0 font-bold text-[var(--color-dark-red)];
+}
+
 
 /* Table */
 .table {

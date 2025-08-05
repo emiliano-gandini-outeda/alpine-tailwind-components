@@ -1506,12 +1506,13 @@ body {
   margin-top: 0.5rem;
 }
 
+/* Unordered list (bullets with accent dots) */
+
 .list-ul {
   color: var(--color-text-primary);
   font-family: 'Inter', sans-serif;
   margin-top: 1.5rem;
-  list-style-position: inside;
-  list-style-type: disc;
+  list-style-type: none;
 }
 
 .list-ul > :not([hidden]) ~ :not([hidden]) {
@@ -1521,7 +1522,7 @@ body {
 }
 
 .list-ul {
-  padding-left: 1rem;
+  padding-left: 1.5rem;
   font-size: 1rem;
   line-height: 1.5rem;
   line-height: 1.625;
@@ -1529,15 +1530,29 @@ body {
 
 .list-ul li {
   position: relative;
-  padding-left: 0.5rem;
+  padding-left: 1.5rem;
+  /* Decorative custom bullet */
 }
+
+.list-ul li::before {
+  content: '';
+  position: absolute;
+  left: 0px;
+  top: 0.5rem;
+  height: 0.5rem;
+  width: 0.5rem;
+  border-radius: 9999px;
+  background-color: var(--color-dark-red);
+}
+
+/* Ordered list (numbered with vertical bar) */
 
 .list-ol {
   color: var(--color-text-primary);
   font-family: 'Inter', sans-serif;
+  counter-reset: list-counter;
   margin-top: 1.5rem;
-  list-style-position: inside;
-  list-style-type: decimal;
+  list-style-type: none;
 }
 
 .list-ol > :not([hidden]) ~ :not([hidden]) {
@@ -1547,15 +1562,27 @@ body {
 }
 
 .list-ol {
-  padding-left: 1rem;
+  border-left-width: 2px;
+  border-color: var(--color-dark-red);
+  padding-left: 1.5rem;
   font-size: 1rem;
   line-height: 1.5rem;
   line-height: 1.625;
 }
 
 .list-ol li {
+  counter-increment: list-counter;
   position: relative;
-  padding-left: 0.5rem;
+  padding-left: 1.5rem;
+}
+
+.list-ol li::before {
+  content: counter(list-counter) '.';
+  position: absolute;
+  left: 0px;
+  top: 0px;
+  font-weight: 700;
+  color: var(--color-dark-red);
 }
 
 /* Table */
