@@ -26,6 +26,16 @@
   --color-overlay: rgba(26, 26, 26, 0.8);
 }
 
+@layer utilities {
+  .border-dark-red {
+    border-color: var(--color-dark-red);
+  }
+
+  .text-dark-red {
+    color: var(--color-dark-red);
+  }
+}
+
 /* Body */
 body {
   background-color: var(--color-background);
@@ -397,7 +407,7 @@ body {
   color: var(--color-text-primary);
   font-family: 'Inter', sans-serif;
   counter-reset: list-counter;
-  @apply list-none mt-6 space-y-3 leading-relaxed text-base pl-6 border-l-2 border-[var(--color-dark-red)];
+  @apply list-none mt-6 space-y-3 leading-relaxed text-base pl-6 border-l-2 border-dark-red;
 }
 
 .list-ol li {
@@ -407,7 +417,7 @@ body {
 
 .list-ol li::before {
   content: counter(list-counter) '.';
-  @apply absolute left-0 top-0 font-bold text-[var(--color-dark-red)];
+  @apply absolute left-0 top-0 font-bold text-dark-red;
 }
 
 
