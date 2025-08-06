@@ -302,14 +302,21 @@ body {
 .form-input:focus {
   border-color: var(--color-dark-red);
   box-shadow: 0 0 0 2px rgba(183, 28, 28, 0.2);
+  @apply w-full px-4 py-2 border rounded-md shadow-sm;
 }
 
 .form-select {
-  @apply form-input;
+  background-color: var(--color-background);
+  color: var(--color-text-primary);
+  border-color: var(--color-borders);
+  @apply w-full px-4 py-2 border rounded-md shadow-sm focus:outline-none focus:ring-2;
 }
 
 .form-textarea {
-  @apply form-input resize-none;
+  background-color: var(--color-background);
+  color: var(--color-text-primary);
+  border-color: var(--color-borders);
+  @apply w-full px-4 py-2 border rounded-md shadow-sm focus:outline-none focus:ring-2 resize-none;
 }
 
 .form-checkbox,
